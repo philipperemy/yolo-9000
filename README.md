@@ -53,6 +53,18 @@ Not compiled with OpenCV, saving to predictions.png instead
 
 The image with the bounding boxes is in `predictions.png`. 
 
+## Examples
+
+`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg`
+<div align="center">
+  <img src="img/predictions_horses.png" width="400"><br><br>
+</div>
+
+`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/person.jpg`
+<div align="center">
+  <img src="img/predictions_person.png" width="400"><br><br>
+</div>
+
 Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU as well. It's much faster!
 
 **NOTE**: Successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
