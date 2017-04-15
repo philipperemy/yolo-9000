@@ -1,9 +1,7 @@
-# yolo-9000
-YOLO9000: Better, Faster, Stronger - Real-Time Object Detection
+# Yolo 9000
+YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the art)
 
 ## How to get started?
-
-It works very well on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest darknet version with MacOS El Capitan.
 
 ```
 git clone --recursive git@github.com:philipperemy/yolo-9000.git
@@ -18,3 +16,4 @@ make # Will run on CPU.
 
 Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU as well. It's much faster!
 
+**NOTE**: Successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
