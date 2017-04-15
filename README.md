@@ -11,7 +11,7 @@ md5sum yolo9000-weights/yolo9000.weights # d74ee8d5909f3b7446e9b350b4dd0f44  yol
 cd darknet 
 make # Will run on CPU.
 
-./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights ../00115.jpg
+./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
 ```
 
 Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU as well. It's much faster!
