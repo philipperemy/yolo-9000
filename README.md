@@ -67,6 +67,62 @@ The image with the bounding boxes is in `predictions.png`.
 
 Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU as well. It's much faster!
 
+## GPU Support
+
+Make sure that your NVIDIA GPU is properly configured beforehand. `nvcc` should be in the PATH. If not, *something like this* should do the job:
+
+```
+export PATH=/usr/local/cuda-8.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+cd darknet
+make clean
+vim Makefile
+# Change the first two lines to: GPU=1 and CUDNN=1
+make
+./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/dog.jpg
+```
+
+The inference should be much faster:
+
+```
+Loading weights from ../yolo9000-weights/yolo9000.weights...Done!
+data/dog.jpg: Predicted in 0.035112 seconds.
+car: 70%
+canine: 56%
+bicycle: 57%
+Not compiled with OpenCV, saving to predictions.png instead
+```
+
+You can also run the command and monitor its status with `nvidia-smi`:
+
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 375.26                 Driver Version: 375.26                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  TITAN X (Pascal)    Off  | 0000:02:00.0      On |                  N/A |
+| 26%   49C    P2    76W / 250W |   4206MiB / 12189MiB |     10%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  TITAN X (Pascal)    Off  | 0000:04:00.0     Off |                  N/A |
+| 29%   50C    P8    20W / 250W |      3MiB / 12189MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  TITAN X (Pascal)    Off  | 0000:05:00.0     Off |                  N/A |
+| 31%   53C    P8    18W / 250W |      3MiB / 12189MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  TITAN X (Pascal)    Off  | 0000:06:00.0     Off |                  N/A |
+| 29%   50C    P8    22W / 250W |      3MiB / 12189MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID  Type  Process name                               Usage      |
+|=============================================================================|
+|    0     30782    C   ./darknet                                     3991MiB |
++-----------------------------------------------------------------------------+
+```
+
 ## Important notes
 
 Successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
