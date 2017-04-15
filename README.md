@@ -74,16 +74,17 @@ Make sure that your NVIDIA GPU is properly configured beforehand. `nvcc` should 
 ```
 export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+```
+Let's now compile `darknet` with GPU support!
+```
 cd darknet
 make clean
-vim Makefile
-# Change the first two lines to: GPU=1 and CUDNN=1
+vim Makefile # Change the first two lines to: GPU=1 and CUDNN=1. You can also use emacs or nano!
 make
 ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/dog.jpg
 ```
 
 The inference should be much faster:
-
 ```
 Loading weights from ../yolo9000-weights/yolo9000.weights...Done!
 data/dog.jpg: Predicted in 0.035112 seconds.
@@ -94,7 +95,6 @@ Not compiled with OpenCV, saving to predictions.png instead
 ```
 
 You can also run the command and monitor its status with `nvidia-smi`:
-
 ```
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 375.26                 Driver Version: 375.26                    |
@@ -122,7 +122,8 @@ You can also run the command and monitor its status with `nvidia-smi`:
 |    0     30782    C   ./darknet                                     3991MiB |
 +-----------------------------------------------------------------------------+
 ```
+Here, we can see that our process `darknet` is running on the first GPU.
 
 ## Important notes
 
-Successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
+It was successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
