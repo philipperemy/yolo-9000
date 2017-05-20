@@ -7,6 +7,7 @@ YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the ar
 
 ## How to get started?
 
+### Ubuntu/Linux
 ```
 git clone --recursive git@github.com:philipperemy/yolo-9000.git
 cd yolo-9000
@@ -14,7 +15,18 @@ cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights # it was generated f
 md5sum yolo9000-weights/yolo9000.weights # d74ee8d5909f3b7446e9b350b4dd0f44  yolo9000.weights
 cd darknet 
 make # Will run on CPU. For GPU support, scroll down!
+./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
+```
 
+### Mac OS
+```
+git clone --recursive git@github.com:philipperemy/yolo-9000.git
+cd yolo-9000
+cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights # it was generated from split -b 95m yolo9000.weights
+md5sum yolo9000-weights/yolo9000.weights # d74ee8d5909f3b7446e9b350b4dd0f44  yolo9000.weights
+cd darknet 
+git reset --hard b61bcf544e8dbcbd2e978ca6a716fa96b37df767
+make # Will run on CPU. For GPU support, scroll down!
 ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
 ```
 
@@ -130,4 +142,4 @@ Here, we can see that our process `darknet` is running on the first GPU.
 
 ## Important notes
 
-It was successfully tested on Ubuntu 16.04. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. If you guys need it, I can upload the previous version that worked for MacOS. Cheers.
+It was successfully tested on Ubuntu 16.04 and Mac OS. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. That's the reason why I pulled a slightly older version of `darknet` for Mac OS.
