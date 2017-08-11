@@ -146,6 +146,8 @@ You can also run the command and monitor its status with `nvidia-smi`:
 ```
 Here, we can see that our process `darknet` is running on the first GPU.
 
+**NOTE**: We highly recommend a recent GPU with 8GB (or more) of memory to run flawlessly. GTX 1070, GTX 1080 Ti or Titan X are a great choice!
+
 ## Important notes
 
 It was successfully tested on Ubuntu 16.04 and Mac OS. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. That's the reason why I pulled a slightly older version of `darknet` for Mac OS.
