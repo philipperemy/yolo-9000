@@ -158,7 +158,7 @@ cd darknet
 make clean
 vim Makefile # Change the first three lines to: GPU=1, CUDNN=1 and OPENCV=1. You can also use emacs or nano!
 make
-./darknet detector demo cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights  -prefix output_ <path_to_your_video_mp4> -thresh 0.15
+./darknet detector demo cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights  -prefix output <path_to_your_video_mp4> -thresh 0.15
 ```
 By default the threshold is set to 0.25. It means that Yolo displays the bounding boxes of elements with a 25%+ confidence. In practice, a lower threshold means more detected items (but also more errors).
 
