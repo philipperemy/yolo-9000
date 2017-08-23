@@ -2,7 +2,8 @@
 YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the art)
 
 <p align="center">
-  <img src="img/example.gif" width="500">
+  <img src="img/example.gif" width="500"><br/>
+  <i>Scroll down if you want to make your own video.</i>
 </p>
 
 ## How to get started?
@@ -147,6 +148,31 @@ You can also run the command and monitor its status with `nvidia-smi`:
 Here, we can see that our process `darknet` is running on the first GPU.
 
 **NOTE**: We highly recommend a recent GPU with 8GB (or more) of memory to run flawlessly. GTX 1070, GTX 1080 Ti or Titan X are a great choice!
+
+## Make your own video! (Ubuntu/Linux)
+
+First we have to install some dependencies (OpenCV and ffmpeg):
+```
+sudo apt-get install libopencv-dev python-opencv ffmpeg
+cd darknet
+make clean
+vim Makefile # Change the first three lines to: GPU=1, CUDNN=1 and OPENCV=1. You can also use emacs or nano!
+make
+./darknet detector demo cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights  -prefix output_ <path_to_your_video_mp4> -thresh 0.15
+```
+By default the threshold is set to 0.25. It means that Yolo displays the bounding boxes of elements with a 25%+ confidence. In practice, a lower threshold means more detected items (but also more errors).
+
+Once this command returns, we merge the output images in a video:
+```
+ffmpeg -framerate 25 -i output_%08d.jpg output.mp4
+```
+
+We can now safely remove the temporary generated images:
+```
+rm output_*.jpg
+```
+
+The final video is `output.mp4`.
 
 ## Important notes
 
