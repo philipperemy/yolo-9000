@@ -76,6 +76,13 @@ Not compiled with OpenCV, saving to predictions.png instead
 
 The image with the bounding boxes is in `predictions.png`. 
 
+
+## Names of the 9k classes
+
+Available here: 
+
+- https://github.com/pjreddie/darknet/blob/1e729804f61c8627eb257fba8b83f74e04945db7/data/9k.names
+
 ## Examples
 
 `./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg`
