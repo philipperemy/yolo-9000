@@ -181,6 +181,19 @@ rm output_*.jpg
 
 The final video is `output.mp4`.
 
+## Convert the weights to Keras
+
+Comment the following lines in the `yolo9000.cfg` file:
+
+```
+batch=1
+subdivisions=1
+```
+
+Then browse the instructions at:
+
+- https://github.com/allanzelener/YAD2K
+
 ## Important notes
 
 It was successfully tested on Ubuntu 16.04 and Mac OS. I had it working on MacOS with a previous version of `darknet`. I now get a SEGFAULT on the newest `darknet` version with MacOS El Capitan. That's the reason why I pulled a slightly older version of `darknet` for Mac OS.
