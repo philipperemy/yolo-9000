@@ -9,7 +9,7 @@ YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the ar
 ## How to get started?
 
 ### Ubuntu/Linux
-```
+```bash
 git clone --recursive https://github.com/philipperemy/yolo-9000.git
 cd yolo-9000
 cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights # it was generated from split -b 95m yolo9000.weights
@@ -20,7 +20,7 @@ make # Will run on CPU. For GPU support, scroll down!
 ```
 
 ### Mac OS
-```
+```bash
 git clone --recursive https://github.com/philipperemy/yolo-9000.git
 cd yolo-9000
 cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights # it was generated from split -b 95m yolo9000.weights
@@ -33,7 +33,7 @@ make # Will run on CPU. For GPU support, scroll down!
 
 You can use the latest version of `darknet` by running this command in the directory `yolo-9000`:
 
-```
+```bash
 git submodule foreach git pull origin master
 ```
 
@@ -101,12 +101,12 @@ Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU a
 
 Make sure that your NVIDIA GPU is properly configured beforehand. `nvcc` should be in the PATH. If not, *something like this* should do the job:
 
-```
+```bash
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 ```
 Let's now compile `darknet` with GPU support!
-```
+```bash
 cd darknet
 make clean
 vim Makefile # Change the first two lines to: GPU=1 and CUDNN=1. You can also use emacs or nano!
@@ -159,7 +159,7 @@ Here, we can see that our process `darknet` is running on the first GPU.
 ## Make your own video! (Ubuntu/Linux)
 
 First we have to install some dependencies (OpenCV and ffmpeg):
-```
+```bash
 sudo apt-get install libopencv-dev python-opencv ffmpeg
 cd darknet
 make clean
@@ -170,12 +170,12 @@ make
 By default the threshold is set to 0.25. It means that Yolo displays the bounding boxes of elements with a 25%+ confidence. In practice, a lower threshold means more detected items (but also more errors).
 
 Once this command returns, we merge the output images in a video:
-```
+```bash
 ffmpeg -framerate 25 -i output_%08d.jpg output.mp4
 ```
 
 We can now safely remove the temporary generated images:
-```
+```bash
 rm output_*.jpg
 ```
 
