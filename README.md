@@ -31,6 +31,16 @@ make # Will run on CPU. For GPU support, scroll down!
 ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
 ```
 
+### Windows
+```
+git clone --recursive https://github.com/philipperemy/yolo-9000.git
+cd yolo-9000
+type yolo9000-weights\xaa yolo9000-weights\xab > yolo9000-weights\yolo9000.weights
+certUtil -hashfile yolo9000-weights\yolo9000.weights MD5
+cd darknet
+git reset --hard b61bcf544e8dbcbd2e978ca6a716fa96b37df767
+``
+
 You can use the latest version of `darknet` by running this command in the directory `yolo-9000`:
 
 ```bash
