@@ -1,5 +1,5 @@
 # Yolo 9000
-YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the art)
+YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the art). Official repository of [CVPR17](https://github.com/cvpr17).
 
 <p align="center">
   <img src="img/example.gif" width="500"><br/>
