@@ -1,10 +1,16 @@
-name: C/C++ CI
+name: CI
 
 on: [push]
 
 jobs:
-  build-ubuntu:
+  build:
+
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
     steps:
     - uses: actions/checkout@v1
     - name: convert yolo weights
