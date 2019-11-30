@@ -42,7 +42,7 @@ jobs:
       with:
             submodules: true
     - name: convert yolo weights
-      run: type yolo9000-weights\xaa yolo9000-weights\xab > yolo9000-weights\yolo9000.weights
+      run: type 'yolo9000-weights\xaa' 'yolo9000-weights\xab' > 'yolo9000-weights\yolo9000.weights'
     - name: build
       run: cd darknet && make
     - name: run
