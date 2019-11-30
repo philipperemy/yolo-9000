@@ -28,8 +28,6 @@ jobs:
             submodules: true
     - name: convert yolo weights
       run: cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights
-    - name: revert to previous commit for MacOS
-      run: cd darknet && git reset --hard b61bcf544e8dbcbd2e978ca6a716fa96b37df767
     - name: build
       run: cd darknet && make
     - name: run
