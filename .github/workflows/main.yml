@@ -16,5 +16,5 @@ jobs:
     - name: build
       run: cd darknet && make
     - name: run
-      run: ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
+      run: cd darknet && ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
 
