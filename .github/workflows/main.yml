@@ -18,3 +18,18 @@ jobs:
     - name: run
       run: cd darknet && ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
 
+  build-macos:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+            submodules: true
+    - name: convert yolo weights
+      run: cat yolo9000-weights/x* > yolo9000-weights/yolo9000.weights
+    - name: build
+      run: cd darknet && make
+    - name: run
+      run: cd darknet && ./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg
+
