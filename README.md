@@ -1,4 +1,7 @@
 # Yolo 9000
+
+![CI](https://github.com/philipperemy/yolo-9000/workflows/CI/badge.svg)
+
 YOLO9000: Better, Faster, Stronger - Real-Time Object Detection (State of the art). Official repository of [CVPR17](https://github.com/cvpr17).
 
 <p align="center">
