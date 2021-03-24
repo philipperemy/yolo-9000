@@ -37,6 +37,25 @@ You can use the latest version of `darknet` by running this command in the direc
 git submodule foreach git pull origin master
 ```
 
+## Names of the 9k classes
+
+Available here: 
+
+- https://github.com/pjreddie/darknet/blob/1e729804f61c8627eb257fba8b83f74e04945db7/data/9k.names
+
+## Examples
+
+`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg`
+<div align="center">
+  <img src="img/predictions_horses.png" width="400"><br><br>
+</div>
+
+`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/person.jpg`
+<div align="center">
+  <img src="img/predictions_person.png" width="400"><br><br>
+</div>
+
+
 The output should be something like:
 
 ```
@@ -77,23 +96,6 @@ Not compiled with OpenCV, saving to predictions.png instead
 The image with the bounding boxes is in `predictions.png`. 
 
 
-## Names of the 9k classes
-
-Available here: 
-
-- https://github.com/pjreddie/darknet/blob/1e729804f61c8627eb257fba8b83f74e04945db7/data/9k.names
-
-## Examples
-
-`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/horses.jpg`
-<div align="center">
-  <img src="img/predictions_horses.png" width="400"><br><br>
-</div>
-
-`./darknet detector test cfg/combine9k.data cfg/yolo9000.cfg ../yolo9000-weights/yolo9000.weights data/person.jpg`
-<div align="center">
-  <img src="img/predictions_person.png" width="400"><br><br>
-</div>
 
 Browse on https://pjreddie.com/darknet/yolo/ to find how to compile it for GPU as well. It's much faster!
 
